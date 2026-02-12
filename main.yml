@@ -1,0 +1,33 @@
+name: Run My Bot
+
+on:
+  push:
+    branches: [ main ]  # Si avvia ogni volta che carichi codice su main
+  schedule:
+    - cron: '0 */6 * * *' # Si avvia automaticamente ogni 6 ore (opzionale)
+  workflow_dispatch:      # Ti permette di avviarlo manualmente dal sito di GitHub
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout del codice
+        uses: actions/checkout@v4
+
+      - name: Configurazione Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Installazione dipendenze
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+      - name: Avvio del Bot
+        env:
+          # Qui colleghiamo i "Secrets" di GitHub alle variabili d'ambiente del bot
+          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+          API_KEY: ${{ secrets.API_KEY }}
+        run: python main.py
