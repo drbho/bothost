@@ -146,3 +146,4 @@ async def on_ready():
     print(f"✅ Online: {bot.user}")
 
 bot.run(TOKEN)
+
