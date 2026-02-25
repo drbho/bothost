@@ -1,33 +1,43 @@
-name: Run My Bot
+name: BotHost Pro CI
 
 on:
   push:
-    branches: [ main ]  # Si avvia ogni volta che carichi codice su main
-  schedule:
-    - cron: '0 */6 * * *' # Si avvia automaticamente ogni 6 ore (opzionale)
-  workflow_dispatch:      # Ti permette di avviarlo manualmente dal sito di GitHub
+    branches: [ main, work ]
+  pull_request:
+  workflow_dispatch:
 
 jobs:
-  build:
+  quality:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout del codice
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Configurazione Python
-        uses: actions/setup-python@v4
+      - name: Setup Python
+        uses: actions/setup-python@v5
         with:
-          python-version: '3.10'
+          python-version: '3.11'
 
-      - name: Installazione dipendenze
+      - name: Static check
+        run: python -m compileall app.py
+
+      - name: Smoke test routes
         run: |
-          python -m pip install --upgrade pip
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          python - <<'PY'
+          import json
+          import threading
+          import urllib.request
+          from app import run
 
-      - name: Avvio del Bot
-        env:
-          # Qui colleghiamo i "Secrets" di GitHub alle variabili d'ambiente del bot
-          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
-          API_KEY: ${{ secrets.API_KEY }}
-        run: python main.py
+          thread = threading.Thread(target=run, daemon=True)
+          thread.start()
+
+          home = urllib.request.urlopen('http://127.0.0.1:8000/', timeout=5)
+          assert home.status == 200
+
+          api = urllib.request.urlopen('http://127.0.0.1:8000/api/plans', timeout=5)
+          body = json.loads(api.read().decode())
+          assert 'plans' in body and len(body['plans']) == 3
+          print('Smoke tests passed')
+          PY

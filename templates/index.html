@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BotHost Pro | Hosting professionale per bot Discord e Telegram</title>
+    <meta
+      name="description"
+      content="BotHost Pro offre infrastruttura ad alte prestazioni, monitoraggio H24 e deploy automatico per bot Discord, Telegram e WhatsApp."
+    />
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav">
+        <div class="brand">BotHost <span>Pro</span></div>
+        <nav>
+          <a href="#servizi">Servizi</a>
+          <a href="#piani">Piani</a>
+          <a href="#affidabilita">Affidabilità</a>
+          <a href="#contatti">Contatti</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-grid">
+          <div>
+            <p class="eyebrow">INFRASTRUTTURA SERIA PER BOT REALI</p>
+            <h1>Hosting professionale per bot, senza compromessi.</h1>
+            <p class="lead">
+              Metti online il tuo bot in minuti con deployment Git, autoscaling, backup giornalieri
+              e monitoraggio in tempo reale. Pensato per team, creator e aziende.
+            </p>
+            <div class="hero-actions">
+              <a class="btn primary" href="#piani">Inizia ora</a>
+              <a class="btn ghost" href="#contatti">Parla con un tecnico</a>
+            </div>
+          </div>
+          <aside class="status-card">
+            <h2>Status infrastruttura</h2>
+            <ul>
+              <li><span>Uptime globale</span><strong>99.95%</strong></li>
+              <li><span>Datacenter EU</span><strong>Milano / Francoforte</strong></li>
+              <li><span>Deploy medio</span><strong>41s</strong></li>
+              <li><span>Ticket critici</span><strong>&lt; 15 min</strong></li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+
+      <section id="servizi" class="section container">
+        <h2>Perché scegliere BotHost Pro</h2>
+        <div class="features">
+          <article>
+            <h3>Deploy continuo da Git</h3>
+            <p>Collega GitHub o GitLab e pubblica ogni release automaticamente con rollback istantaneo.</p>
+          </article>
+          <article>
+            <h3>Isolamento e sicurezza</h3>
+            <p>Container isolati, firewall gestito, segreti cifrati e policy di accesso multi-ruolo.</p>
+          </article>
+          <article>
+            <h3>Osservabilità completa</h3>
+            <p>Log centralizzati, metriche CPU/RAM, alert Telegram/Discord e dashboard prestazioni.</p>
+          </article>
+          <article>
+            <h3>Supporto tecnico reale</h3>
+            <p>Team tecnico italiano, SLA dedicati e assistenza operativa per incident e tuning.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="piani" class="section dark">
+        <div class="container">
+          <h2>Piani hosting</h2>
+          <p class="subtitle">Scalabili, trasparenti e pronti per la produzione.</p>
+          <div class="pricing-grid">
+            <article class="price-card">
+              <h3>Starter</h3>
+              <p class="price">€ 6.90<span>/mese</span></p>
+              <ul>
+                <li>2 GB RAM dedicata</li>
+                <li>1 vCPU</li>
+                <li>20 GB NVMe</li>
+                <li>Supporto Email (24h)</li>
+                <li>Bot piccoli e progetti personali</li>
+              </ul>
+              <button class="btn ghost">Attiva Starter</button>
+            </article>
+            <article class="price-card featured">
+              <h3>Pro</h3>
+              <p class="price">€ 14.90<span>/mese</span></p>
+              <ul>
+                <li>6 GB RAM dedicata</li>
+                <li>2 vCPU</li>
+                <li>60 GB NVMe</li>
+                <li>Supporto prioritario Discord + Email</li>
+                <li>Community attive e bot in produzione</li>
+              </ul>
+              <button class="btn primary">Attiva Pro</button>
+            </article>
+            <article class="price-card">
+              <h3>Enterprise</h3>
+              <p class="price">€ 34.90<span>/mese</span></p>
+              <ul>
+                <li>16 GB RAM dedicata</li>
+                <li>4 vCPU</li>
+                <li>160 GB NVMe</li>
+                <li>SLA dedicato + onboarding tecnico</li>
+                <li>Agenzie, SaaS e bot ad alto traffico</li>
+              </ul>
+              <button class="btn ghost">Attiva Enterprise</button>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="affidabilita" class="section container">
+        <h2>Affidabilità in numeri</h2>
+        <div class="metrics">
+          <div><strong>12M+</strong><span>esecuzioni bot / giorno</span></div>
+          <div><strong>2.4k</strong><span>istanze attive</span></div>
+          <div><strong>&lt;35ms</strong><span>latenza media intra-EU</span></div>
+          <div><strong>24/7</strong><span>monitoraggio + incident response</span></div>
+        </div>
+      </section>
+
+      <section id="contatti" class="section contact">
+        <div class="container">
+          <h2>Parla con il nostro team</h2>
+          <p>
+            Scrivici per una migrazione assistita o una configurazione enterprise.
+            Ti rispondiamo con un piano tecnico in meno di un giorno lavorativo.
+          </p>
+          <form id="lead-form" class="contact-form">
+            <input type="text" name="nome" placeholder="Nome e cognome" required />
+            <input type="email" name="email" placeholder="Email aziendale" required />
+            <textarea name="progetto" rows="4" placeholder="Descrivi il tuo bot/progetto"></textarea>
+            <button type="submit" class="btn primary">Invia richiesta</button>
+          </form>
+          <p id="form-result" class="form-result" aria-live="polite"></p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-grid">
+        <p>© 2026 BotHost Pro. Tutti i diritti riservati.</p>
+        <div>
+          <a href="#">Privacy</a>
+          <a href="#">Termini</a>
+          <a href="#">Status</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="/static/script.js"></script>
+  </body>
+</html>
