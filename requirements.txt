@@ -1,1 +1,1 @@
-discord.py
+# Nessuna dipendenza esterna richiesta per l'esecuzione locale.
